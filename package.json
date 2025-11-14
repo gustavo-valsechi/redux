@@ -1,0 +1,52 @@
+{
+  "name": "@gustavo-valsechi/redux",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "UNLICENSED",
+  "bin": {
+    "@gustavo-valsechi/redux": "bin/index.tsx"
+  },
+  "scripts": {
+    "clean": "rimraf dist && rimraf node_modules/.cache",
+    "build:js": "tsup && tsc-alias",
+    "build:remodel": "node scripts/remodel.js",
+    "build": "npm run clean && npm run build:js && npm run build:remodel",
+    "commit": "npm run build && npm version patch --no-git-tag-version && npm publish --access public"
+  },
+  "peerDependencies": {
+    "@reduxjs/toolkit": "2.10.1",
+    "next": "14.2.5",
+    "react": "19.2.0",
+    "react-redux": "9.2.0"
+  },
+  "dependencies": {
+    "tsup": "8.5.0"
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "2.10.1",
+    "@types/node": "22.0.2",
+    "@types/react": "^19.2.4",
+    "esbuild": "0.25.11",
+    "next": "14.2.5",
+    "react": "19.2.0",
+    "react-redux": "9.2.0",
+    "rimraf": "6.1.0",
+    "tsc-alias": "1.8.16",
+    "typescript": "5.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  }
+}
