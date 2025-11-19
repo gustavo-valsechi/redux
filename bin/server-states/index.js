@@ -18,12 +18,13 @@ if (!fs.existsSync(file)) {
     fs.writeFileSync(
         file,
         `
-            import { NextResponse } from "next/server"
-            import { store } from "@gustavo-valsechi/redux"
-            
-            export async function GET() {
-                return NextResponse.json(store.getState())
-            }
+import { NextResponse } from "next/server"
+import { store } from "@gustavo-valsechi/redux"
+
+export async function GET() {
+    const state = store.getState()
+    return NextResponse.json({ success: true, state })
+}
         `.trim()
     )
 

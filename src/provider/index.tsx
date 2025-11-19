@@ -2,12 +2,13 @@
 
 import React from "react"
 import { Provider } from "react-redux"
-import { SyncServerState, store } from "@index"
+import { store } from "../index"
+import { SyncStatesProvider } from "../tools"
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
     return (
         <Provider store={store}>
-            <SyncServerState />
+            <SyncStatesProvider />
             {children}
         </Provider>
     )

@@ -1,6 +1,6 @@
 {
   "name": "@gustavo-valsechi/redux",
-  "version": "1.0.0",
+  "version": "1.0.50",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,13 +9,12 @@
   ],
   "license": "UNLICENSED",
   "bin": {
-    "@gustavo-valsechi/redux": "bin/index.tsx"
+    "redux": "dist/bin/index.js"
   },
   "scripts": {
     "clean": "rimraf dist && rimraf node_modules/.cache",
     "build:js": "tsup && tsc-alias",
-    "build:remodel": "node scripts/remodel.js",
-    "build": "npm run clean && npm run build:js && npm run build:remodel",
+    "build": "npm run clean && npm run build:js",
     "commit": "npm run build && npm version patch --no-git-tag-version && npm publish --access public"
   },
   "peerDependencies": {
@@ -47,6 +46,16 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.js"
+    },
+    "./provider": {
+      "types": "./dist/src/provider/index.d.ts",
+      "import": "./dist/src/provider/index.js",
+      "require": "./dist/src/provider/index.js"
+    },
+    "./tools": {
+      "types": "./dist/src/tools/index.d.ts",
+      "import": "./dist/src/tools/index.js",
+      "require": "./dist/src/tools/index.js"
     }
   }
 }
